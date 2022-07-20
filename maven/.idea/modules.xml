@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jartype/jartype.iml" filepath="$PROJECT_DIR$/jartype/jartype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wartype/wartype.iml" filepath="$PROJECT_DIR$/wartype/wartype.iml" />
+    </modules>
+  </component>
+</project>
