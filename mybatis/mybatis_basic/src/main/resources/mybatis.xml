@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+
+<configuration>
+
+    <typeAliases>
+        <!--一般不建议设置别名-->
+        <!--给某个实体类设置别名-->
+        <typeAlias type="com.xubowen.mybatis.pojo.Emp" alias="Emp"></typeAlias>
+        <!--默认包下所有的类名都为别名，不区分大小写-->
+        <package name="com.xubowen.mybatis.pojo"/>
+    </typeAliases>
+
+
+
+    <environments default="test01">
+
+        <environment id="test01">
+            <transactionManager type="JDBC"></transactionManager>
+
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/test01?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="0000"/>
+
+            </dataSource>
+
+        </environment>
+
+    </environments>
+
+    <mappers>
+        <mapper resource="com/xubowen/mybatis/mapper/EmpMapper.xml"/>
+        <package name="com.xubowen.mybatis.interface_mapper"/>
+    </mappers>
+
+    
+</configuration>

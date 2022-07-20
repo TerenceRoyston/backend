@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+<!--配置学生bean-->
+    <bean id="stu" class="aspectj.pojo.Student"></bean>
+
+    <!--配置通知bean-->
+    <bean id="advice" class="aspectj.advice.MyAdvice"></bean>
+
+
+    <!--配置切面-->
+    <aop:config>
+        <!--声明一组组装，可以声明多个-->
+        <aop:aspect ref="advice">
+            <!--声明切点-->
+            <!--如果代理对象调用扩展方法时，参数需要给前置通知使用，那么需要绑定参数-->
+            <aop:pointcut id="mp" expression="execution(* aspectj.pojo.Student.testStu(String,Integer)) and args(name,age)"/>
+            <aop:before method="before" arg-names="name,age" pointcut-ref="mp" ></aop:before>
+<!--            <aop:after-returning method="after" pointcut-ref="mp"></aop:after-returning>
+            <aop:around method="round" pointcut-ref="mp"></aop:around>
+            <aop:after-throwing method="myThrow" pointcut-ref="mp"></aop:after-throwing>-->
+        </aop:aspect>
+    </aop:config>
+
+</beans>

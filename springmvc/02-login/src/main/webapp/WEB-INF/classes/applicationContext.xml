@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!--Spring IOC 创建对象-->
+
+    <!--配置注解扫描-->
+    <context:component-scan base-package="com.xubowen.service.impl"></context:component-scan>
+
+    <!--引入数据库配置文件-->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+
+    <!--配置数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${mysql.driver}"/>
+        <property name="url" value="${mysql.url}"/>
+        <property name="username" value="${mysql.username}"/>
+        <property name="password" value="${mysql.password}"/>
+    </bean>
+
+
+    <!--配置工厂bean-->
+    <bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--配置mapper扫描路径  自动扫描包下所有接口并实例化对象进IOC容器等待使用，每个实例化对象对应的beanid为接口名称小写-->
+    <bean id="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--<property name="sqlSessionFactory" ref="factory"></property>-->
+        <!--使用这种方式会比属性注入慢一些，给配置文件扫描留下时间-->
+        <property name="sqlSessionFactoryBeanName" value="factory"></property>
+        <property name="basePackage" value="com.xubowen.mapper"></property>
+    </bean>
+
+
+    <!--配置业务层bean-->
+
+
+    <!--配置事务-->
+    <!--配置事务管理bean-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--声明事务管理方法-->
+    <tx:advice id="advice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="ins*"/>
+            <tx:method name="up*"/>
+            <tx:method name="del*"/>
+            <tx:method name="sel*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置事务管理切面-->
+    <aop:config>
+        <aop:pointcut id="mp" expression="execution(* com.xubowen.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="advice" pointcut-ref="mp"></aop:advisor>
+    </aop:config>
+
+</beans>

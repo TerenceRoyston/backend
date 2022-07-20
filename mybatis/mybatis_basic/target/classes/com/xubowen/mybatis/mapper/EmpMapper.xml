@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xubowen.mybatis.mapper.EmpMapper">
+    <!--查询所有员工-->
+    <select id="select_emp" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp
+    </select>
+
+    <!--根据ID查员工-->
+    <select id="selEmpById" parameterType="int" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where empno=#{111}
+    </select>
+
+    <select id="selEmpBySalAndDeptno" parameterType="Map" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where sal > #{a} and deptno = #{b}
+    </select>
+
+    <!--mybatis增加 删除 修改 无需使用resultType属性表明返回值类型 默认int -->
+    <insert id="insertEmp" parameterType="Map">
+        insert into emp values (#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
+    </insert>
+
+    <update id="updateEmp" parameterType="Map">
+        update emp set ename=#{ename} where empno=#{empno}
+    </update>
+
+    <delete id="deleteEmp" parameterType="int">
+        delete from emp where EMPNO=#{111}
+    </delete>
+</mapper>

@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "foo.user",
+      "type": "com.xubowen.pojo.User",
+      "sourceType": "com.xubowen.pojo.User"
+    }
+  ],
+  "properties": [
+    {
+      "name": "foo.user.id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.xubowen.pojo.User"
+    },
+    {
+      "name": "foo.user.name",
+      "type": "java.lang.String",
+      "sourceType": "com.xubowen.pojo.User"
+    }
+  ],
+  "hints": []
+}

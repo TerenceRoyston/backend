@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="servlet" />
+        <module name="manager" />
+        <module name="jsp" />
+        <module name="ajax" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ajax" target="1.7" />
+      <module name="jsp" target="1.7" />
+      <module name="manager" target="1.7" />
+      <module name="servlet" target="1.7" />
+      <module name="todelete" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

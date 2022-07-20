@@ -1,0 +1,7 @@
+server:
+  port: 8888
+
+foo:
+  user:
+    name: scala
+    id: 99

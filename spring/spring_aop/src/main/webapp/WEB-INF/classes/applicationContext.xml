@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+    <!--配置学生bean-->
+    <bean id="stu" class="com.xubowen.staticproxy.pojo.Student"></bean>
+
+    <!--配置通知bean-->
+    <!--前置-->
+    <bean id="before" class="com.xubowen.advice.MyBefore"></bean>
+
+    <!--后置-->
+    <bean id="after" class="com.xubowen.advice.MyAfter"></bean>
+
+    <!--环绕通知bean-->
+    <bean id="round" class="com.xubowen.advice.MyRound"></bean>
+
+    <!--配置异常通知bean-->
+    <bean id="throw" class="com.xubowen.advice.MyThrow"></bean>
+
+
+
+    <!--声明扩展功能及组装规则-->
+    <aop:config>
+        <!--指定功能扩展的方法-->
+        <aop:pointcut id="mp" expression="execution(* com.xubowen.staticproxy.pojo.Student.testStu(String,Integer))"/>
+        <!--配置前置通知-->
+        <aop:advisor advice-ref="before" pointcut-ref="mp"></aop:advisor>
+        <!--配置后置通知-->
+        <aop:advisor advice-ref="after" pointcut-ref="mp"></aop:advisor>
+        <!--配置环绕通知bean-->
+        <aop:advisor advice-ref="round" pointcut-ref="mp"></aop:advisor>
+        <!--配置异常通知-->
+        <aop:advisor advice-ref="throw" pointcut-ref="mp"></aop:advisor>
+    </aop:config>
+
+</beans>

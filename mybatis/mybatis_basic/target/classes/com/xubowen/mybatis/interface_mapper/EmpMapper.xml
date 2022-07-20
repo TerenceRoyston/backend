@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xubowen.mybatis.interface_mapper.EmpMapper">
+
+    <sql id="empSql">
+        empno,ename
+    </sql>
+
+    <!--查询所有员工-->
+    <select id="selEmpWithInterface" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp
+    </select>
+
+    <select id="selEmpByIncludeWithInterface" resultType="com.xubowen.mybatis.pojo.Emp">
+        select <include refid="empSql"></include> from emp
+    </select>
+
+    <!--根据ID查员工-->
+    <select id="selEmpByIdWithInterface" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where empno=#{0}
+    </select>
+
+    <!--传入属性名或键名-->
+    <select id="selEmpByIdWithInterface2" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where empno=#{empno}
+    </select>
+
+
+    <!--多参数  注意角标写法-->
+    <select id="selEmpBySalAndDeptnoWithInterface" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where sal > #{arg0} and deptno = #{arg1}
+    </select>
+
+    <select id="selEmpBySalAndDeptnoWithInterface2" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where sal > #{arg0.sal} and deptno = #{arg1.deptno}
+    </select>
+
+    <select id="selEmpBySalAndDeptnoWithInterface3" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where sal > #{e1.sal} and deptno = #{e2.deptno}
+    </select>
+
+
+    <!--模糊查询-->
+    <select id="selEmpByFuzzyQueryWithInterface" resultType="com.xubowen.mybatis.pojo.Emp">
+        select * from emp where ENAME like concat('%',#{ename},'%')
+    </select>
+
+
+    <!--mybatis增加 删除 修改 无需使用resultType属性表明返回值类型 默认int -->
+    <insert id="insertEmp" parameterType="Map">
+        insert into emp values (#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
+    </insert>
+
+    <update id="updateEmp" parameterType="Map">
+        update emp set ename=#{ename} where empno=#{empno}
+    </update>
+
+    <delete id="deleteEmp" parameterType="int">
+        delete from emp where EMPNO=#{111}
+    </delete>
+
+</mapper>

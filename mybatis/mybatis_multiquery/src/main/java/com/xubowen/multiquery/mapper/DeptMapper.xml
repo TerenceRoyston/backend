@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xubowen.multiquery.mapper.DeptMapper">
+
+    <select id="selDeptByDeptno" resultType="com.xubowen.multiquery.pojo.Dept">
+        select * from dept where DEPTNO=#{deptno}
+    </select>
+
+
+    <!--级联查询-->
+    <resultMap id="query2" type="com.xubowen.multiquery.pojo.Dept">
+        <!--这个关联字段要单独写一遍，要不然字段会赋值为null-->
+        <id property="deptno" column="deptno"></id>
+        <association property="empList" column="deptno" select="com.xubowen.multiquery.mapper.EmpMapper.selEmpByDeptno"></association>
+    </resultMap>
+
+    <select id="selDeptWithEmp" resultMap="query2">
+        select * from dept
+    </select>
+
+
+</mapper>

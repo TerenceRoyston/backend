@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xubowen.dynamicSQL.mapper.EmpMapper">
+
+
+    <!--动态SQL：根据不同条件查询员工 if标签-->
+    <select id="selEmp" resultType="com.xubowen.dynamicSQL.pojo.Emp">
+        select * from emp where 1=1
+        <if test="job != null and job != '' ">
+            and JOB =#{job}
+        </if>
+
+        <if test="deptno != null and deptno != '' ">
+            and deptno =#{deptno}
+        </if>
+
+        <if test="sal != null and sal != '' ">
+            and sal > #{sal}
+        </if>
+    </select>
+
+    <!--动态SQL：根据不同条件查询员工 where标签-->
+    <!--自动忽略第一个关键字and-->
+    <select id="selEmp2" resultType="com.xubowen.dynamicSQL.pojo.Emp">
+        select * from emp
+        <where>
+            <if test="job != null and job != '' ">
+                and JOB =#{job}
+            </if>
+
+            <if test="deptno != null and deptno != '' ">
+                and deptno =#{deptno}
+            </if>
+
+            <if test="sal != null and sal != '' ">
+                and sal > #{sal}
+            </if>
+        </where>
+
+    </select>
+
+    <!--动态SQL：传入参数处理 bind标签-->
+    <!--一般在模糊查询时使用  前后添加% -->
+    <select id="selEmp3" resultType="com.xubowen.dynamicSQL.pojo.Emp">
+        <bind name="job2" value="job+'***'"/>
+        select * from emp where job=#{job2}
+    </select>
+
+
+    <!--动态SQL：处理更新操作 set标签-->
+    <update id="updateEmp">
+        update emp 
+        <set>
+            <if test="e.ename!=null and e.ename!=''">
+                ename=#{e.ename},
+            </if>
+
+            empno=#{e.empno}
+        </set>
+        where empno=#{e.empno}
+    </update>
+
+    <!--动态SQL：动态循环 foreach标签-->
+    <select id="selEmp4" resultType="com.xubowen.dynamicSQL.pojo.Emp">
+        select * from emp where empno in
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </select>
+
+</mapper>

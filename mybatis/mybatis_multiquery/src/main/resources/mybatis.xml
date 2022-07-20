@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- settings标签 -->
+    <settings>
+        <!-- 设置MyBatis使用log4j日志支持 -->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <typeAliases>
+        <!--一般不建议设置别名-->
+        <!--给某个实体类设置别名-->
+        <typeAlias type="com.xubowen.multiquery.pojo.Emp" alias="Emp"></typeAlias>
+        <!--默认包下所有的类名都为别名，不区分大小写-->
+        <package name="com.xubowen.multiquery.pojo"/>
+    </typeAliases>
+
+
+    <!--数据库参数配置-->
+    <environments default="test01">
+        <environment id="test01">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/test01?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="0000"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.xubowen.multiquery.mapper"/>
+    </mappers>
+
+</configuration>

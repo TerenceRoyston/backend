@@ -1,0 +1,151 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--配置全局数据 -->
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>aaa</param-value>
+    </context-param>
+
+
+    <display-name>Archetype Created Web Application</display-name>
+
+
+    <!--模拟登陆练习-->
+
+    <!--登录页面-->
+    <servlet>
+        <servlet-name>page</servlet-name>
+        <servlet-class>com.xubowen.loginexercise.PageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>page</servlet-name>
+        <url-pattern>/page</url-pattern>
+    </servlet-mapping>
+
+    <!--处理登录请求-->
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.xubowen.loginexercise.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/load</url-pattern>
+    </servlet-mapping>
+
+
+    <!--校验Cookie信息-->
+    <servlet>
+        <servlet-name>checkcookie</servlet-name>
+        <servlet-class>com.xubowen.loginexercise.CheckCookieServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>checkcookie</servlet-name>
+        <url-pattern>/checkcookie</url-pattern>
+    </servlet-mapping>
+
+    <!--主页面-->
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.xubowen.loginexercise.servlet.MainServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <!--添加cookie信息-->
+    <servlet>
+        <servlet-name>cookie</servlet-name>
+        <servlet-class>com.xubowen.cookie.CookieServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>cookie</servlet-name>
+        <url-pattern>/cookie</url-pattern>
+    </servlet-mapping>
+
+    <!--获取cookie信息-->
+    <servlet>
+        <servlet-name>getcookie</servlet-name>
+        <servlet-class>com.xubowen.cookie.GetCookieServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getcookie</servlet-name>
+        <url-pattern>/getcookie</url-pattern>
+    </servlet-mapping>
+
+    <!--session学习-->
+    <servlet>
+        <servlet-name>session</servlet-name>
+        <servlet-class>com.xubowen.session.SessionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>session</servlet-name>
+        <url-pattern>/getsession</url-pattern>
+    </servlet-mapping>
+
+
+    <!--获取session信息-->
+    <servlet>
+        <servlet-name>getsession</servlet-name>
+        <servlet-class>com.xubowen.session.GetSessionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getsession</servlet-name>
+        <url-pattern>/sessionInfo</url-pattern>
+    </servlet-mapping>
+
+    <!--ServletContext-->
+    <servlet>
+        <servlet-name>servletcontext</servlet-name>
+        <servlet-class>com.xubowen.servletcontext.ServletContextServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletcontext</servlet-name>
+        <url-pattern>/servletcontext</url-pattern>
+    </servlet-mapping>
+
+    <!--获取ServletContext信息-->
+    <servlet>
+        <servlet-name>getservletcontext</servlet-name>
+        <servlet-class>com.xubowen.servletcontext.GetServletContext</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getservletcontext</servlet-name>
+        <url-pattern>/getservletcontext</url-pattern>
+    </servlet-mapping>
+
+    <!--ServletConfig-->
+    <servlet>
+        <servlet-name>servletconfig</servlet-name>
+        <servlet-class>com.xubowen.servletconfig.ServletConfigServlet</servlet-class>
+
+        <!--局部servlet配置-->
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>pdd</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletconfig</servlet-name>
+        <url-pattern>/servletconfig</url-pattern>
+    </servlet-mapping>
+</web-app>
+

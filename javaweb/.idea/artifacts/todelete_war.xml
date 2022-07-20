@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="todelete:war">
+    <output-path>$PROJECT_DIR$/todelete/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>todelete</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="todelete.war">
+      <element id="artifact" artifact-name="todelete:war exploded" />
+    </root>
+  </artifact>
+</component>
