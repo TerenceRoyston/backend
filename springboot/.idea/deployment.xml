@@ -2,35 +2,49 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="192.168.80.129">
+      <paths name="calcfab">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="192.168.80.201">
+      <paths name="docker_env">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="192.168.80.202">
+      <paths name="es100">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="192.168.80.203">
+      <paths name="gitlab">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="CentOS7">
+      <paths name="hdp1">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="hdp2">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="hdp3">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

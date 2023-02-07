@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
     <!--mybatis增加 删除 修改 无需使用resultType属性表明返回值类型 默认int -->
-    <insert id="insertEmp" parameterType="Map">
+    <insert id="insertEmp" parameterType="Map" >
         insert into emp values (#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
     </insert>
 

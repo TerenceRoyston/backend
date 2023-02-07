@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="verificationcode:war">
+    <output-path>$PROJECT_DIR$/verificationcode/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>verificationcode</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="verificationcode.war">
+      <element id="artifact" artifact-name="verificationcode:war exploded" />
+    </root>
+  </artifact>
+</component>
