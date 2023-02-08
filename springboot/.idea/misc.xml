@@ -7,6 +7,10 @@
         <option value="$PROJECT_DIR$/maven_test_01/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_01_01_quickstart/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_02_base_congfiguration/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_junit/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_03_mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_mybatisplus_01/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_05_druid_01/pom.xml" />
       </list>
     </option>
   </component>

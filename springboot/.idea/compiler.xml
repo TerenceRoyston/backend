@@ -7,15 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot_02_base_congfiguration" />
-        <module name="maven_test_01" />
-        <module name="springboot_01_01_quickstart" />
+        <module name="springboot_junit" />
         <module name="springboot_mybatis" />
+        <module name="springboot_01_01_quickstart" />
+        <module name="springboot_04_mybatisplus_01" />
+        <module name="springboot_03_mybatis" />
+        <module name="springboot_05_druid_01" />
+        <module name="maven_test_01" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="maven_test_01" target="1.8" />
       <module name="springboot_01_01_quickstart" target="1.8" />
       <module name="springboot_02_base_congfiguration" target="1.8" />
+      <module name="springboot_03_mybatis" target="1.8" />
+      <module name="springboot_04_mybatisplus_01" target="1.8" />
+      <module name="springboot_05_druid_01" target="1.8" />
+      <module name="springboot_junit" target="1.8" />
       <module name="springboot_model" target="1.8" />
       <module name="springboot_mybatis" target="1.8" />
     </bytecodeTargetLevel>
@@ -25,6 +33,10 @@
       <module name="maven_test_01" options="-parameters" />
       <module name="springboot_01_01_quickstart" options="-parameters" />
       <module name="springboot_02_base_congfiguration" options="-parameters" />
+      <module name="springboot_03_mybatis" options="-parameters" />
+      <module name="springboot_04_mybatisplus_01" options="-parameters" />
+      <module name="springboot_05_druid_01" options="-parameters" />
+      <module name="springboot_junit" options="-parameters" />
       <module name="springboot_model" options="-parameters" />
       <module name="springboot_mybatis" options="-parameters" />
     </option>
