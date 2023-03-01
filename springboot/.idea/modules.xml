@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/springboot_03_mybatis/springboot_03_mybatis.iml" filepath="$PROJECT_DIR$/springboot_03_mybatis/springboot_03_mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_04_mybatisplus_01/springboot_04_mybatisplus_01.iml" filepath="$PROJECT_DIR$/springboot_04_mybatisplus_01/springboot_04_mybatisplus_01.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_05_druid_01/springboot_05_druid_01.iml" filepath="$PROJECT_DIR$/springboot_05_druid_01/springboot_05_druid_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_06_swagger_01/springboot_06_swagger_01.iml" filepath="$PROJECT_DIR$/springboot_06_swagger_01/springboot_06_swagger_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_07_ssmp_01/springboot_07_ssmp_01.iml" filepath="$PROJECT_DIR$/springboot_07_ssmp_01/springboot_07_ssmp_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_08_apollo_01/springboot_08_apollo_01.iml" filepath="$PROJECT_DIR$/springboot_08_apollo_01/springboot_08_apollo_01.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_junit/springboot_junit.iml" filepath="$PROJECT_DIR$/springboot_junit/springboot_junit.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_mybatis/springboot_mybatis.iml" filepath="$PROJECT_DIR$/springboot_mybatis/springboot_mybatis.iml" />
     </modules>

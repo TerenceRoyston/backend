@@ -16,5 +16,6 @@ import java.util.List;
  */
 
 @Repository
+@Mapper
 public interface UserDao extends BaseMapper<User> {
 }
